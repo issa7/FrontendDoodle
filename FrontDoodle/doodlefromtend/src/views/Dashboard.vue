@@ -72,9 +72,9 @@ export default {
           table.push(item)
         })
         this.listData = table
-         console.log(responseData)
+        // console.log(responseData)
       }, (response) => {
-        console.log()
+        //console.log()
       })
     },
     ListParticipant (code) {

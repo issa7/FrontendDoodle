@@ -65,6 +65,8 @@
 </template>
 
 <script>
+  import $ from "jquery";
+
   export default {
     name: 'Participants',
     data () {
@@ -214,6 +216,10 @@
     mounted () {
       this.loadmessage(this.$route.params.id)
       this.loadData(this.$route.params.id)
+      $(document).ready(function () {
+        // eslint-disable-next-line no-undef
+
+      })
       // Mise à jour
 
   }

@@ -53,7 +53,7 @@
                 <dataTable :t-columns="listTable.tabcolumns" :t-data="listData"
                            :t-use-action-buttons="listTable.tabUseActionButtons"
                            :t-action-buttons="listTable.tabActionButtons" t-action-column="mail"
-                           @updateItem="updateData" @deleteItem="deleteData" @detailsItem="addSondage"/>
+                             @detailsItem="addSondage"/>
               </div>
             </div>
           </div>
@@ -95,14 +95,7 @@
               name: 'creerSondage',
               bClass: 'btn btn-success btn-sm'
             },
-            update: {
-              name: 'Modifier',
-              bClass: 'btn btn-sm btn-warning'
-            },
-            delete: {
-              name: 'Supprimer',
-              bClass: 'btn-danger btn-sm'
-            }
+
           }
         }
 
@@ -160,20 +153,6 @@
         this.itemUpdateCode = ''
         this.messageErrorEdit = undefined
       },
-
-      updateData (code) {
-        this.$http.get('/api/createur/area_type/get/' + code).then((response) => {
-          let responseData = response.data.data
-          // this.fnumber = responseData.num_type_zone_geo
-          this.fname = responseData.nom
-          this.isUpdate = true
-          this.itemUpdateCode = code // responseData.slug
-
-          this.messageErrorEdit = undefined
-        }, () => {
-          this.messageErrorEdit = 'Une erreur est survenue lors du chargement des données'
-        })
-      },
       addSondage(mail) {
         this.$router.push('sondage/sondageDate/' + mail)
       },
@@ -192,20 +171,6 @@
           })
         }
       },
-
-      deleteData (code) {
-        // let code = this.itemUpdateCode
-        this.$http.get('/api/createur/area_type/delete/' + code).then((response) => {
-          this.loadData()
-          this.messageErrorList = undefined
-        }, () => {
-          this.messageErrorList = 'Une erreur est survenue lors de la suppression'
-        })
-      },
-
-      selectEditData (code) {
-        this.itemUpdateCode = code
-      }
     },
     mounted () {
       this.loadData()

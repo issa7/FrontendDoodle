@@ -48,6 +48,11 @@ function configRoutes () {
           component: () => import('../views/connexion/login.vue')
         },
         {
+          path: 'loginParticipant',
+          name: 'loginParticipant',
+          component: () => import('../views/connexion/loginParticipant.vue')
+        },
+        {
           path: 'sondageDate/:id?',
           name: 'SondageDate',
           component: () => import('../views/Sondage/SondageDate.vue')

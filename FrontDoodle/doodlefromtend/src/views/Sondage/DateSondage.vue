@@ -103,8 +103,6 @@
       },
       loadData (code) {
         this.$http.get('/rest/doodle/SondageDate/'+code+'/choix').then((response) => {
-          // this.listData = response.data.data
-          // construction du tableau
           let responseData = response.data
           let table = []
           responseData.forEach(element => {
