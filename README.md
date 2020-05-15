@@ -19,7 +19,16 @@ sur le navigateur qui est le client : http://localhost:8081/
 ### consulter la liste des sondage 
 ici nous pouvont consulter la liste des sondage
 ### créer un createur
+### créer une reunion 
 ### crééer sondage
+### ajouter des partcipants au sondage créer par le createur
+### ajouter des dates au sondage à choisir par les participants
 pour creer un sondage, le createur doit se connecter, si le connexion a reussir alors il est rediregé vers le formulaire de creation de sondage. une fois créer alors on peut ajouter une reunion au sondage, aussi on peut ajouter des choix de date au sondage et enfin on peut ajouter des participants au sondage image ci dessous
 
 ![image](image1.png)
+
+# les ecrans qui restent à implementer 
+
+# authors
+## Issa Keita
+## Seydou Bakayoko
