@@ -30,5 +30,5 @@ pour creer un sondage, le createur doit se connecter, si le connexion a reussir 
 # les ecrans qui restent à implementer 
 
 # authors
-## Issa Keita
-## Seydou Bakayoko
+### Issa Keita
+### Seydou Bakayoko
