@@ -16,3 +16,8 @@ npm run dev
 sur le navigateur qui est le client : http://localhost:8081/
 
 # Fonctionnalités developpe à ce jour 
+### consulter la liste des sondage 
+ici nous pouvont consulter la liste des sondage
+### créer un createur
+### crééer sondage
+pour creer un sondage, le createur doit se connecter, si le connexion a reussir alors il est rediregé vers le formulaire de creation de sondage
