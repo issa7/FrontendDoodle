@@ -62,6 +62,11 @@ function configRoutes () {
           name: 'participant',
           component: () => import('../views/Sondage/Participants.vue')
         },
+        {
+          path: 'reunion/:id?',
+          name: 'reunion',
+          component: () => import('../views/Sondage/Reunion.vue')
+        },
       ]
     }
   ]

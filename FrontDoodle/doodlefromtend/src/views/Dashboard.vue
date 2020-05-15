@@ -1,5 +1,26 @@
 <template>
+<div>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="card">
+            <div class="card-header"><i class="fa fa-align-justify"/>Liste des sondage </div>
+            <div class="card-body">
 
+
+              <dataTable :t-columns="listTable.tabcolumns" :t-data="listData"
+                         :t-use-action-buttons="listTable.tabUseActionButtons"
+                         :t-action-buttons="listTable.tabActionButtons" t-action-column="id"
+                         @updateItem="updateData" @deleteItem="deleteData" />
+            </div>
+          </div>
+        </div>
+        <!-- /.col-->
+      </div>
+    </div>
+  </div>
+</div>
 </template>
 
 <script>
@@ -9,127 +30,71 @@ export default {
 
   data () {
     return {
-      tabcolumns: ['Name', 'Position', 'Office', 'Age', 'Start date', 'Salary'],
-      tabData: [
-        {
-          name: 'Tiger Nixon',
-          position: 'System Architect',
-          office: 'Edinburgh',
-          age: '61',
-          startDate: '2011/04/25',
-          salary: '$320,800',
-          slug: 'jedoffgd'
+
+      listData: [],
+      isUpdate: false,
+      itemUpdateCode: '',
+      messageErrorList: undefined,
+      messageErrorEdit: undefined,
+      // Data table parameters
+      listTable: {
+        tabcolumns: ['Nom Sondage', 'createur', 'Reunion',],
+        tabData: this.listData,
+        tabButtonsName: {
+          copy: 'Copier',
+          print: 'Imprimer',
+          colvis: 'Visibilté des colonnes'
         },
-        {
-          name: 'Garrett Winters',
-          position: 'Accountant',
-          office: 'Tokyo',
-          age: '63',
-          startDate: '2011/07/25',
-          salary: '$170,750',
-          slug: 'dolepe'
-        },
-        {
-          name: 'Ashton Cox',
-          position: 'Junior Technical Author',
-          office: 'San Francisco',
-          age: '66',
-          startDate: '2009/01/12',
-          salary: '$86,000',
-          slug: 'erpzefnc'
-        },
-        {
-          name: 'Cedric Kelly',
-          position: 'Senior Javascript Developer',
-          office: 'Edinburgh',
-          age: '22',
-          startDate: '2012/03/29',
-          salary: '$433,060',
-          slug: 'ndksudq'
-        },
-        {
-          name: 'Airi Satou',
-          position: 'Accountant',
-          office: 'Tokyo',
-          age: '33',
-          startDate: '2008/11/28',
-          salary: '$162,700',
-          slug: 'qeozqdnf'
-        },
-        {
-          name: 'Tiger Nixon',
-          position: 'System Architect',
-          office: 'Edinburgh',
-          age: '61',
-          startDate: '2011/04/25',
-          salary: '$320,800',
-          slug: 'ùqsjifc'
-        },
-        {
-          name: 'Garrett Winters',
-          position: 'Accountant',
-          office: 'Tokyo',
-          age: '63',
-          startDate: '2011/07/25',
-          salary: '$170,750',
-          slug: 'anxsodix'
-        },
-        {
-          name: 'Ashton Cox',
-          position: 'Junior Technical Author',
-          office: 'San Francisco',
-          age: '66',
-          startDate: '2009/01/12',
-          salary: '$86,000',
-          slug: 'posdcndsc'
-        },
-        {
-          name: 'Cedric Kelly',
-          position: 'Senior Javascript Developer',
-          office: 'Edinburgh',
-          age: '22',
-          startDate: '2012/03/29',
-          salary: '$433,060',
-          slug: 'msdosfc'
-        },
-        {
-          name: 'Airi Satou',
-          position: 'Accountant',
-          office: 'Tokyo',
-          age: '33',
-          startDate: '2008/11/28',
-          salary: '$162,700',
-          slug: 'pofdjqsfcn'
-        }
-      ],
-      tabButtons: ['copy', 'csv', 'excel', 'pdf', 'print', 'colvis'],
-      tabButtonsName: {
-        copy: 'Copier',
-        print: 'Imprimer',
-        colvis: 'Visibilté des colonnes'
-      },
-      tabUseActionButtons: true,
-      tabActionButtons: {
-        update: {
-          name: 'Modifier',
-          bClass: 'btn btn-sm btn-warning'
-        },
-        delete: {
-          name: 'Supprimer',
-          bClass: 'btn-danger btn-sm'
+        tabUseActionButtons: true,
+        tabActionButtons: {
+
+          update: {
+            name: 'Modifier',
+            bClass: 'btn btn-sm btn-warning'
+          },
+          delete: {
+            name: 'Supprimer',
+            bClass: 'btn-danger btn-sm'
+          }
         }
       }
+
     }
   },
 
   methods: {
-    updateItem (param) {
-      console.log(param)
+    loadData () {
+      this.$http.get('/rest/doodle/sondageDate/all').then((response) => {
+        // this.listData = response.data.data
+        // construction du tableau
+        let responseData = response.data
+        let table = []
+        responseData.forEach(element => {
+          let item = {}
+          item.nom = element.nomSondage
+          item.createur =element.utilisateur.mail
+          item.rencontre = element.reunion
+          item.id = element.id
+          table.push(item)
+        })
+        this.listData = table
+        console.log(responseData.utilisateur.mail)
+      }, (response) => {
+        console.log(response)
+      })
     },
+    updateData (code) {
 
-    deleteItem (param) {
-      console.log(param)
-    }
+    },
+    deleteData (code) {
+
+    },
+  },
+  mounted () {
+
+    this.loadData()
+    // Mise à jour
+
   }
 }
 </script>

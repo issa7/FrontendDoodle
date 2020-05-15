@@ -38,7 +38,7 @@
                 <dataTable :t-columns="listTable.tabcolumns" :t-data="listData"
                            :t-use-action-buttons="listTable.tabUseActionButtons"
                            :t-action-buttons="listTable.tabActionButtons" t-action-column="id"
-                           @updateItem="addDate" @addItem="addParticipant" />
+                           @updateItem="addDate" @addItem="addParticipant"  @detailsItem="addReunion"/>
               </div>
             </div>
           </div>
@@ -69,6 +69,10 @@
           },
           tabUseActionButtons: true,
           tabActionButtons: {
+            details: {
+              name: 'Ajouter une Reunion',
+              bClass: 'btn btn-success btn-sm'
+            },
             update: {
               name: 'Ajouter choix de Date',
               bClass: 'btn btn-sm btn-warning'
@@ -85,6 +89,9 @@
     methods:{
       addDate (code) {
         this.$router.push('/dateSondage/' + code)
+      },
+      addReunion(code){
+        this.$router.push('/reunion/' + code)
       },
       addParticipant (code) {
         this.$router.push('/participant/' + code)
