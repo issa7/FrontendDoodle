@@ -27,6 +27,10 @@ pour creer un sondage, le createur doit se connecter, si le connexion a reussir 
 
 ![image](image1.png)
 
+## problèmes avec les datatables
+au niveau de l'affichage des données les datatables rencontres des problemes de chargements des données que nous avions pas recu 
+à resoudre. Mais les resulats s'affiche quand on reactualise la pages en questions
+
 # les ecrans qui restent à implementer 
 
 # authors
