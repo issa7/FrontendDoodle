@@ -12,7 +12,7 @@
               <dataTable :t-columns="listTable.tabcolumns" :t-data="listData"
                          :t-use-action-buttons="listTable.tabUseActionButtons"
                          :t-action-buttons="listTable.tabActionButtons" t-action-column="id"
-                         @updateItem="updateData" @deleteItem="deleteData" />
+                         @updateItem="ListParticipant"  />
             </div>
           </div>
         </div>
@@ -36,7 +36,7 @@ export default {
       itemUpdateCode: '',
       messageErrorList: undefined,
       messageErrorEdit: undefined,
-      // Data table parameters
+      // Data table createur
       listTable: {
         tabcolumns: ['Nom Sondage', 'createur', 'Reunion',],
         tabData: this.listData,
@@ -49,13 +49,9 @@ export default {
         tabActionButtons: {
 
           update: {
-            name: 'Modifier',
+            name: 'Liste des participants',
             bClass: 'btn btn-sm btn-warning'
           },
-          delete: {
-            name: 'Supprimer',
-            bClass: 'btn-danger btn-sm'
-          }
         }
       }
 
@@ -65,26 +61,24 @@ export default {
   methods: {
     loadData () {
       this.$http.get('/rest/doodle/sondageDate/all').then((response) => {
-        // this.listData = response.data.data
-        // construction du tableau
         let responseData = response.data
         let table = []
         responseData.forEach(element => {
           let item = {}
           item.nom = element.nomSondage
-          item.createur =element.utilisateur.mail
+          item.creatur = element.utilisateur.mail
           item.rencontre = element.reunion
           item.id = element.id
           table.push(item)
         })
         this.listData = table
-        console.log(responseData.utilisateur.mail)
+         console.log(responseData)
       }, (response) => {
-        console.log(response)
+        console.log()
       })
     },
-    updateData (code) {
-
+    ListParticipant (code) {
+      this.$router.push('/listParticipant/' + code)
     },
     deleteData (code) {
 

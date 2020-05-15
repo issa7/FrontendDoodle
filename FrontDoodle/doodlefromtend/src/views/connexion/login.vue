@@ -19,8 +19,7 @@
       </form>
     </div>
     <div class="card-footer">
-      <div class="btn btn-sm btn-success" v-if="!isUpdate" @click.prevent="saveData()">Envoyer</div>
-      <div class="btn btn-sm btn-warning" v-else @click.prevent="saveUpdateData()">Envoyer</div>
+      <div class="btn btn-sm btn-success"  @click.prevent="saveData()">Envoyer</div>
       <div class="btn btn-sm btn-danger" @click.prevent="clearInput()">Annuler</div>
     </div>
   </div>
@@ -35,7 +34,6 @@
       return {
         femail: '',
         fpass:'',
-        isUpdate:false
       }
     },
     methods:{
@@ -45,14 +43,13 @@
             let createur = response.data
           if ( createur.motPass === this.fpass){
             this.createSondage(this.femail)
-            console.log(createur)
+            //console.log(createur)
           }else {
              this.clearInput()
           }
 
         }, ( response) => {
-          console.log(console.log('errueru',response))
-          this.messageErrorEdit = 'Une erreur est survenue lors de l\'enregistrement'
+         // console.log(console.log('errueru',response))
         })
       },
       createSondage(mail) {
@@ -60,8 +57,7 @@
       },
       clearInput () {
         this.femail = ''
-          this.fpass = '',
-          this.isUpdate = false
+          this.fpass = ''
       }
     },
     mounted () {

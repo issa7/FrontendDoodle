@@ -80,7 +80,7 @@
         itemUpdateCode: '',
         messageErrorList: undefined,
         messageErrorEdit: undefined,
-        // Data table parameters
+        // Data table createur
         listTable: {
           tabcolumns: ['Mail', 'Nom', 'Prenom',],
           tabData: this.listData,
@@ -117,7 +117,7 @@
           let table = []
           responseData.forEach(element => {
             let item = {}
-            item.mail = element.mail
+            item.email = element.mail
             item.name = element.nom
             item.prenom = element.prenom
             table.push(item)
@@ -162,7 +162,7 @@
       },
 
       updateData (code) {
-        this.$http.get('/api/parameters/area_type/get/' + code).then((response) => {
+        this.$http.get('/api/createur/area_type/get/' + code).then((response) => {
           let responseData = response.data.data
           // this.fnumber = responseData.num_type_zone_geo
           this.fname = responseData.nom
@@ -184,7 +184,7 @@
             number: this.fnumber
           }
 
-          this.$http.post('/api/parameters/area_type/update/' + this.itemUpdateCode, formData, {emulateJSON: true}).then((response) => {
+          this.$http.post('/api/createur/area_type/update/' + this.itemUpdateCode, formData, {emulateJSON: true}).then((response) => {
             this.loadData()
             this.clearInput()
           }, () => {
@@ -195,7 +195,7 @@
 
       deleteData (code) {
         // let code = this.itemUpdateCode
-        this.$http.get('/api/parameters/area_type/delete/' + code).then((response) => {
+        this.$http.get('/api/createur/area_type/delete/' + code).then((response) => {
           this.loadData()
           this.messageErrorList = undefined
         }, () => {

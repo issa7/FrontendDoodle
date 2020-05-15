@@ -7203,7 +7203,7 @@
 	 * @prop {number} weight - The weight used to sort the item. Higher weights are further away from the chart area
 	 * @prop {boolean} fullWidth - if true, and the item is horizontal, then push vertical boxes down
 	 * @prop {function} isHorizontal - returns true if the layout item is horizontal (ie. top or bottom)
-	 * @prop {function} update - Takes two parameters: width and height. Returns size of item
+	 * @prop {function} update - Takes two createur: width and height. Returns size of item
 	 * @prop {function} getPadding -  Returns an object with padding on the edges
 	 * @prop {number} width - Width of item. Must be valid after update()
 	 * @prop {number} height - Height of item. Must be valid after update()
@@ -8115,7 +8115,7 @@
 		addScalesToLayout: function(chart) {
 			// Adds each scale to the chart.boxes array to be sized accordingly
 			helpers$1.each(chart.scales, function(scale) {
-				// Set ILayoutItem parameters for backwards compatibility
+				// Set ILayoutItem createur for backwards compatibility
 				scale.fullWidth = scale.options.fullWidth;
 				scale.position = scale.options.position;
 				scale.weight = scale.options.weight;
@@ -11515,7 +11515,7 @@
 			// Ticks - `this.ticks` is now DEPRECATED!
 			// Internal ticks are now stored as objects in the PRIVATE `this._ticks` member
 			// and must not be accessed directly from outside this class. `this.ticks` being
-			// around for long time and not marked as private, we can't change its parameters
+			// around for long time and not marked as private, we can't change its createur
 			// without unexpected breaking changes. If you need to access the scale ticks,
 			// use scale.getTicks() instead.
 

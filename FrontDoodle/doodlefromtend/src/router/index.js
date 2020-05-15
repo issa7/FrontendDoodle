@@ -36,7 +36,7 @@ function configRoutes () {
             {
               path: 'Createur',
               name: 'Parameters.Createur',
-              component: () => import('../views/parameters/Creator.vue')
+              component: () => import('../views/createur/Creator.vue')
             },
 
           ]
@@ -66,6 +66,11 @@ function configRoutes () {
           path: 'reunion/:id?',
           name: 'reunion',
           component: () => import('../views/Sondage/Reunion.vue')
+        },
+        {
+          path: 'listParticipant/:id?',
+          name: 'listParticipant',
+          component: () => import('../views/Sondage/ListPartcipants.vue')
         },
       ]
     }
