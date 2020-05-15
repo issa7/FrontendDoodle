@@ -11,7 +11,7 @@
     <ul class="c-sidebar-nav">
       <li class="c-sidebar-nav-item">
         <router-link :to="{name: 'Home'}" class="c-sidebar-nav-link">
-          <i class="fas fa-tachometer-alt c-sidebar-nav-icon"/> Tableau de bord
+          <i class="fas fa-tachometer-alt c-sidebar-nav-icon"/> Liste des Sondage
         </router-link>
       </li>
 
@@ -19,7 +19,7 @@
 
       <li class="c-sidebar-nav-item c-sidebar-nav-dropdown">
         <a class="c-sidebar-nav-link c-sidebar-nav-dropdown-toggle" href="#">
-          <i class="fas fa-cogs c-sidebar-nav-icon"/> Paramètres</a>
+          <i class="fas fa-cogs c-sidebar-nav-icon"/> Creer un compte</a>
         <ul class="c-sidebar-nav-dropdown-items">
           <li class="c-sidebar-nav-item">
             <router-link :to="{name: 'Parameters.Createur'}" class="c-sidebar-nav-link">Créer un compte Createur</router-link>
@@ -29,7 +29,7 @@
 
       <li class="c-sidebar-nav-item c-sidebar-nav-dropdown">
         <a class="c-sidebar-nav-link c-sidebar-nav-dropdown-toggle" href="#">
-          <i class="fas fa-cogs c-sidebar-nav-icon"/> Connexion</a>
+          <i class="fas fa-cogs c-sidebar-nav-icon"/> Connexion du createur</a>
         <ul class="c-sidebar-nav-dropdown-items">
           <li class="c-sidebar-nav-item">
             <router-link :to="{name: 'Login'}" class="c-sidebar-nav-link">Se connecter </router-link>
